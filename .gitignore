@@ -1,0 +1,30 @@
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments and builds
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+
+# Local/private source data never allowed in this derivative
+runs/
+snapshots/
+spectrum_data/
+handoff/
+docs/archive/
+.env
+.env.*
+*.log
+*.zip
+*.tar.gz
+
+# OS/editor noise
+.DS_Store
+.vscode/
+.idea/
