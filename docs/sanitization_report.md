@@ -1,20 +1,24 @@
 # Sanitization Report
 
-Last updated: 2026-05-30
+Last updated: 2026-06-01
 
 ## Status
 
-Draft local skeleton created at `GBM_Inverse_Potential_Recon`. No commits or
-pushes have been made.
+Draft local skeleton created at `GBM_Inverse_Potential_Recon`.
+
+- Local commit: `bb2a396 Initial public derivative skeleton`
+- Remote status before private-first publish step: no remote configured.
+- Public visibility: not public.
 
 ## Latest Local Checks
 
-Passed locally on 2026-05-30:
+Passed locally on 2026-06-01:
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m unittest discover -s tests
 python3 scripts/sanitize_scan.py .
 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m gbm_inverse_potential.cli --json
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 examples/harmonic_oscillator_demo.py
 ```
 
 Observed demo metrics:
@@ -36,4 +40,5 @@ Observed demo metrics:
 ## Human Publish Gate
 
 Do not make this repository public until the staged files, scan output, license,
-citation metadata, and README are reviewed manually.
+citation metadata, and README are reviewed manually. GitHub remote creation
+should start private.
