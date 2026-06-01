@@ -7,7 +7,9 @@ Last updated: 2026-06-01
 Draft local skeleton created at `GBM_Inverse_Potential_Recon`.
 
 - Local commit: `bb2a396 Initial public derivative skeleton`
-- Remote status before private-first publish step: no remote configured.
+- Private-first gate commit: `1ab19cc Harden private-first publish gate`
+- Remote status: private GitHub staging remote configured at
+  `git@github.com:M-Gage-Plott42/GBM_Inverse_Potential_Recon.git`.
 - Public visibility: not public.
 
 ## Latest Local Checks
@@ -36,9 +38,10 @@ Observed demo metrics:
 - blocked directories: absent;
 - files larger than 1 MB: absent;
 - tests: pass on the public v0 smoke path.
+- GitHub CI: passed on the private staging repo for the first private push.
 
 ## Human Publish Gate
 
 Do not make this repository public until the staged files, scan output, license,
 citation metadata, and README are reviewed manually. GitHub remote creation
-should start private.
+has started private as intended.

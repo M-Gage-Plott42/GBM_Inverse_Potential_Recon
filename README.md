@@ -47,8 +47,9 @@ python -m gbm_inverse_potential.cli --json
 
 ## Repository Status
 
-This is a draft public derivative skeleton. Do not treat it as published until
-the allowlist, sanitization report, and human publish gate are reviewed.
+This is a private staging repository for a draft public derivative skeleton.
+Do not treat it as public or profile-ready until the allowlist, sanitization
+report, and human publish gate are reviewed.
 
 ## License
 
