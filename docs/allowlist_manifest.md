@@ -14,6 +14,7 @@ public push.
 | `examples/` | Deterministic smoke demo. |
 | `tests/` | Minimal correctness checks. |
 | `scripts/sanitize_scan.py` | Public-release blocker scan. |
+| `.github/dependabot.yml` | Dependency and GitHub Actions update monitoring. |
 | `.github/workflows/ci.yml` | Public CI test and sanitation gate. |
 | `README.md` | Public landing page. |
 | `LICENSE` | Draft MIT license for review. |
@@ -29,6 +30,7 @@ public push.
 | Runtime dependencies | Reduced to `numpy>=1.26`. |
 | Citation metadata | Retitled for the derivative repo. |
 | README material | Rewritten for public users. |
+| GitHub Actions references | Pinned to full commit SHAs with version comments. |
 
 ## Defer
 
