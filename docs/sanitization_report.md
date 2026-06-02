@@ -1,10 +1,10 @@
 # Sanitization Report
 
-Last updated: 2026-06-01
+Last updated: 2026-06-02
 
 ## Status
 
-Public v0 release candidate created at `GBM_Inverse_Potential_Recon`.
+Public v0 artifact published at `GBM_Inverse_Potential_Recon`.
 
 - Local commit: `bb2a396 Initial public derivative skeleton`
 - Private-first gate commit: `1ab19cc Harden private-first publish gate`
@@ -12,9 +12,16 @@ Public v0 release candidate created at `GBM_Inverse_Potential_Recon`.
 - Actions supply-chain hardening: Dependabot config added for GitHub Actions
   and pip; workflow actions are pinned to full commit SHAs with version
   comments.
-- Remote status: private GitHub staging remote configured at
-  `git@github.com:M-Gage-Plott42/GBM_Inverse_Potential_Recon.git`.
-- Public visibility: approved for first public v0 release on 2026-06-01.
+- Public remote: `git@github.com:M-Gage-Plott42/GBM_Inverse_Potential_Recon.git`.
+- Public visibility: approved and published for first public v0 release on
+  2026-06-01.
+- Public metadata: GitHub repository description is public-facing; license is
+  MIT; `CITATION.cff` records version `0.1.0`.
+- Post-public security settings: secret scanning, push protection, and
+  Dependabot security updates are enabled with zero open secret-scanning or
+  Dependabot alerts as checked on 2026-06-02.
+- Post-public hardening: CodeQL workflow added with least-privilege workflow
+  permissions and full-SHA pinned actions.
 
 ## Latest Local Checks
 
@@ -42,10 +49,13 @@ Observed demo metrics:
 - blocked directories: absent;
 - files larger than 1 MB: absent;
 - tests: pass on the public v0 smoke path.
-- GitHub CI: passed on the private staging repo for the first private push.
+- GitHub CI: public push run `26793729957` passed for Python `3.10`, `3.11`,
+  and `3.12`.
 - GitHub Actions runtime: workflow uses full-SHA pins for
   `actions/checkout` v6.0.2 and `actions/setup-python` v6.2.0, both selected
   for Node 24 compatibility.
+- GitHub CodeQL: workflow uses full-SHA pins for `actions/checkout` v6.0.2 and
+  `github/codeql-action` v4.36.0.
 
 ## Human Publish Gate
 

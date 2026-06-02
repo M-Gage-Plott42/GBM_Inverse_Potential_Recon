@@ -1,10 +1,10 @@
 # Allowlist Manifest
 
-Last updated: 2026-05-30
+Last updated: 2026-06-02
 
 This manifest records the first-pass clean-room classification for the public
 v0 derivative. It is intentionally small and should be reviewed before any
-public push.
+future content expansion.
 
 ## Include
 
@@ -16,9 +16,10 @@ public push.
 | `scripts/sanitize_scan.py` | Public-release blocker scan. |
 | `.github/dependabot.yml` | Dependency and GitHub Actions update monitoring. |
 | `.github/workflows/ci.yml` | Public CI test and sanitation gate. |
+| `.github/workflows/codeql.yml` | Public CodeQL code-scanning workflow. |
 | `README.md` | Public landing page. |
-| `LICENSE` | Draft MIT license for review. |
-| `CITATION.cff` | Draft citation metadata. |
+| `LICENSE` | MIT license. |
+| `CITATION.cff` | Public v0 citation metadata. |
 | `SECURITY.md` | Vulnerability and private-data reporting policy. |
 | `docs/` | Public-safe scope, reproducibility, and release-gate docs. |
 
@@ -31,6 +32,7 @@ public push.
 | Citation metadata | Retitled for the derivative repo. |
 | README material | Rewritten for public users. |
 | GitHub Actions references | Pinned to full commit SHAs with version comments. |
+| CodeQL workflow | Added as a public-repo hardening signal with least-privilege permissions. |
 
 ## Defer
 

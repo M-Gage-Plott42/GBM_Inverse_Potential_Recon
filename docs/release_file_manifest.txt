@@ -1,5 +1,6 @@
 # Expected files for public v0. sanitize_scan.py fails on unexpected files.
 .github/dependabot.yml
+.github/workflows/codeql.yml
 .github/workflows/ci.yml
 .gitignore
 CITATION.cff

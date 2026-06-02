@@ -52,6 +52,8 @@ The scope is intentionally narrow: harmonic-oscillator Fourier/form-factor
 density and potential reconstruction plus release-safety checks. The private
 research workspace and broader GBM stack remain excluded.
 
+For the exact public v0 scope and limitations, see `docs/scope_contract.md`.
+
 Future additions should pass the same allowlist, sanitization, test, and human
 review gates before they are folded into this public repository.
 
