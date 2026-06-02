@@ -2,14 +2,14 @@
 
 ## Supported Versions
 
-This repository is a draft public artifact. Before public release, security
-reports should target the current `main` branch only.
+This repository is an initial public v0 artifact. Security reports should
+target the current `main` branch only.
 
 ## Reporting A Vulnerability
 
 Do not open a public issue for suspected secrets or private-data exposure.
-Use a private maintainer contact channel until GitHub private vulnerability
-reporting is enabled for the public repository.
+Use GitHub private vulnerability reporting if enabled, or a private maintainer
+contact channel.
 
 ## Data-Safety Boundary
 

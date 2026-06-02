@@ -4,7 +4,7 @@ Last updated: 2026-06-01
 
 ## Status
 
-Draft local skeleton created at `GBM_Inverse_Potential_Recon`.
+Public v0 release candidate created at `GBM_Inverse_Potential_Recon`.
 
 - Local commit: `bb2a396 Initial public derivative skeleton`
 - Private-first gate commit: `1ab19cc Harden private-first publish gate`
@@ -14,7 +14,7 @@ Draft local skeleton created at `GBM_Inverse_Potential_Recon`.
   comments.
 - Remote status: private GitHub staging remote configured at
   `git@github.com:M-Gage-Plott42/GBM_Inverse_Potential_Recon.git`.
-- Public visibility: not public.
+- Public visibility: approved for first public v0 release on 2026-06-01.
 
 ## Latest Local Checks
 
@@ -49,6 +49,7 @@ Observed demo metrics:
 
 ## Human Publish Gate
 
-Do not make this repository public until the staged files, scan output, license,
-citation metadata, and README are reviewed manually. GitHub remote creation
-has started private as intended.
+The first public v0 release gate is approved for the current manifest only.
+Further private source-repo migration requires a separate allowlist,
+sanitization scan, test/smoke evidence, and human review. Do not broaden this
+repository by copying private source-tree material wholesale.

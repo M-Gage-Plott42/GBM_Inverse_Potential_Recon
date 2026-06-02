@@ -47,13 +47,23 @@ python -m gbm_inverse_potential.cli --json
 
 ## Repository Status
 
-This is a private staging repository for a draft public derivative skeleton.
-Do not treat it as public or profile-ready until the allowlist, sanitization
-report, and human publish gate are reviewed.
+This is the first public v0 artifact from the sanitized GBM derivative path.
+The scope is intentionally narrow: harmonic-oscillator Fourier/form-factor
+density and potential reconstruction plus release-safety checks. The private
+research workspace and broader GBM stack remain excluded.
+
+Future additions should pass the same allowlist, sanitization, test, and human
+review gates before they are folded into this public repository.
+
+## Maintainer / Help
+
+Maintained by Matthew Gage Plott. Use GitHub Issues for ordinary questions.
+For suspected private-data or security exposure, do not open a public issue;
+follow `SECURITY.md`.
 
 ## License
 
-MIT, pending final human review before public release.
+MIT.
 
 ## Citation
 

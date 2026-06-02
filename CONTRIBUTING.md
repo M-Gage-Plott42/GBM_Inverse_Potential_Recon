@@ -1,8 +1,8 @@
 # Contributing
 
-This project is not open for broad external contribution during the draft
-artifact phase. Small issues and documentation corrections can be considered
-after the public-release gate is complete.
+This project is not open for broad external contribution during the initial
+public v0 phase. Small issues and documentation corrections can be considered
+when they stay within the current public-safety scope.
 
 Before proposing changes, run:
 

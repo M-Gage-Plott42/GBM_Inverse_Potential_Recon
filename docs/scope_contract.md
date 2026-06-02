@@ -1,6 +1,6 @@
 # Scope Contract
 
-Last updated: 2026-05-30
+Last updated: 2026-06-01
 
 ## Derivative Name
 
@@ -10,7 +10,7 @@ Python package name: `gbm-inverse-potential-recon`
 
 ## License
 
-Planned license: MIT, pending final human review before public release.
+MIT.
 
 ## Audience
 
@@ -46,4 +46,5 @@ Public v0 is deliberately narrow:
 - no large engine migration;
 - no private run-registry reproduction;
 - no publication-status or manuscript-status claims;
-- no public release until the publish gate is reviewed.
+- no additional private-source migration without a separate allowlist,
+  sanitization pass, test or smoke evidence, and human review.
