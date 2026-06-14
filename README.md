@@ -111,4 +111,6 @@ MIT.
 
 ## Citation
 
-See `CITATION.cff`.
+Use `CITATION.cff` for the current software citation metadata. DOI metadata
+will be added only after Zenodo archives a GitHub release and mints the
+software DOI.

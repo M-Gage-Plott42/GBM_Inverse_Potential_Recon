@@ -16,7 +16,7 @@ Public v0 artifact published at `GBM_Inverse_Potential_Recon`.
 - Public visibility: approved and published for first public v0 release on
   2026-06-01.
 - Public metadata: GitHub repository description is public-facing; license is
-  MIT; `CITATION.cff` records version `0.1.0`.
+  MIT; `CITATION.cff` records version `0.1.1` for citable-release prep.
 - Post-public security settings: secret scanning, push protection, and
   Dependabot security updates are enabled with zero open secret-scanning or
   Dependabot alerts as checked on 2026-06-02.
