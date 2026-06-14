@@ -6,8 +6,8 @@ authors:
   - family-names: "Plott"
     given-names: "Matthew Gage"
     orcid: "https://orcid.org/0009-0000-9120-0910"
-version: "0.1.0"
-date-released: "2026-06-01"
+version: "0.1.1"
+date-released: "2026-06-14"
 repository-code: "https://github.com/M-Gage-Plott42/GBM_Inverse_Potential_Recon"
 abstract: >-
   Clean public artifact for inverse radial density and potential
