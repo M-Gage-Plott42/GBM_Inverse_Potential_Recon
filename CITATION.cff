@@ -9,5 +9,12 @@ authors:
 version: "0.1.0"
 date-released: "2026-06-01"
 repository-code: "https://github.com/M-Gage-Plott42/GBM_Inverse_Potential_Recon"
-abstract: "Clean public artifact for inverse radial density and potential reconstruction from spectral-moment information."
+abstract: >-
+  Clean public artifact for inverse radial density and potential
+  reconstruction from spectral-moment information.
+keywords:
+  - inverse problem
+  - radial density
+  - spectral moments
+  - research software
 license: "MIT"

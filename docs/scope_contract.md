@@ -1,6 +1,6 @@
 # Scope Contract
 
-Last updated: 2026-06-01
+Last updated: 2026-06-14
 
 ## Derivative Name
 
@@ -27,7 +27,9 @@ Public v0 is deliberately narrow:
 - deterministic harmonic-oscillator ground-state reference;
 - reduced radial density reconstruction;
 - potential reconstruction by finite differences in reduced units;
-- unit tests and a command-line smoke demo.
+- unit tests and a command-line smoke demo;
+- public smoke benchmark notes for the oscillator demo;
+- command-reproducible public demo SVG generation.
 
 ## Blocked Content Classes
 
@@ -46,5 +48,6 @@ Public v0 is deliberately narrow:
 - no large engine migration;
 - no private run-registry reproduction;
 - no publication-status or manuscript-status claims;
+- no claim that private manuscript figures are reproduced;
 - no additional private-source migration without a separate allowlist,
   sanitization pass, test or smoke evidence, and human review.
