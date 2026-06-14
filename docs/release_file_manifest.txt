@@ -9,6 +9,7 @@ LICENSE
 README.md
 SECURITY.md
 docs/allowlist_manifest.md
+docs/public_smoke_benchmark.md
 docs/publish_gate.md
 docs/release_file_manifest.txt
 docs/reproducibility.md
@@ -19,9 +20,11 @@ examples/harmonic_oscillator_demo.py
 pyproject.toml
 requirements-dev.txt
 requirements.txt
+scripts/reproduce_public_demo_figure.py
 scripts/sanitize_scan.py
 src/gbm_inverse_potential/__init__.py
 src/gbm_inverse_potential/cli.py
 src/gbm_inverse_potential/fourier.py
 tests/test_fourier.py
+tests/test_public_demo_figure.py
 tests/test_sanitize_scan.py

@@ -1,6 +1,6 @@
 # Sanitization Report
 
-Last updated: 2026-06-02
+Last updated: 2026-06-14
 
 ## Status
 
@@ -22,16 +22,21 @@ Public v0 artifact published at `GBM_Inverse_Potential_Recon`.
   Dependabot alerts as checked on 2026-06-02.
 - Post-public hardening: CodeQL workflow added with least-privilege workflow
   permissions and full-SHA pinned actions.
+- Evidence-layer refresh: README badges and status notes, public smoke
+  benchmark notes, reproducibility tolerances, and a command-reproducible
+  public demo figure workflow were added without broadening the science scope.
 
 ## Latest Local Checks
 
-Passed locally on 2026-06-01:
+Passed locally on 2026-06-14 after editable install:
 
 ```bash
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m unittest discover -s tests
+python3 -m pip install -e .
 python3 scripts/sanitize_scan.py .
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m gbm_inverse_potential.cli --json
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 examples/harmonic_oscillator_demo.py
+python3 -m unittest discover -s tests
+python3 -m gbm_inverse_potential.cli --json
+python3 examples/harmonic_oscillator_demo.py
+python3 scripts/reproduce_public_demo_figure.py --output /tmp/gbm_public_demo_density.svg
 ```
 
 Observed demo metrics:
@@ -52,10 +57,14 @@ Observed demo metrics:
 - GitHub CI: public push run `26793729957` passed for Python `3.10`, `3.11`,
   and `3.12`.
 - GitHub Actions runtime: workflow uses full-SHA pins for
-  `actions/checkout` v6.0.2 and `actions/setup-python` v6.2.0, both selected
+  `actions/checkout` v6.0.3 and `actions/setup-python` v6.2.0, both selected
   for Node 24 compatibility.
-- GitHub CodeQL: workflow uses full-SHA pins for `actions/checkout` v6.0.2 and
-  `github/codeql-action` v4.36.0.
+- GitHub CodeQL: workflow uses full-SHA pins for `actions/checkout` v6.0.3 and
+  `github/codeql-action` v4.36.2.
+- Open dependency PRs reviewed on 2026-06-14:
+  `actions/checkout` v6.0.3 and `github/codeql-action` v4.36.2 both had
+  passing public checks when reviewed. Their exact updates were folded into
+  this evidence-layer refresh.
 
 ## Human Publish Gate
 

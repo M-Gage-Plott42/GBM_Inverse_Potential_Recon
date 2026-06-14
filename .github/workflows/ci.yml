@@ -17,7 +17,7 @@ jobs:
         python-version: ["3.10", "3.11", "3.12"]
     steps:
       - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
       - name: Set up Python
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
         with:
@@ -30,5 +30,13 @@ jobs:
           python -m pip install -e .
       - name: Unit tests
         run: python -m unittest discover -s tests
+      - name: CLI JSON smoke
+        run: python -m gbm_inverse_potential.cli --json
+      - name: Demo smoke
+        run: python examples/harmonic_oscillator_demo.py
+      - name: Public figure smoke
+        run: >
+          python scripts/reproduce_public_demo_figure.py
+          --output /tmp/gbm_public_demo_density.svg
       - name: Sanitization scan after install
         run: python scripts/sanitize_scan.py .
