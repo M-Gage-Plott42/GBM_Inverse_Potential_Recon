@@ -8,6 +8,7 @@ authors:
     orcid: "https://orcid.org/0009-0000-9120-0910"
 version: "0.1.1"
 date-released: "2026-06-14"
+doi: "10.5281/zenodo.20693818"
 repository-code: "https://github.com/M-Gage-Plott42/GBM_Inverse_Potential_Recon"
 abstract: >-
   Clean public artifact for inverse radial density and potential

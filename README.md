@@ -5,6 +5,7 @@
 [![Release](https://img.shields.io/github/v/release/M-Gage-Plott42/GBM_Inverse_Potential_Recon)](https://github.com/M-Gage-Plott42/GBM_Inverse_Potential_Recon/releases)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20693817.svg)](https://doi.org/10.5281/zenodo.20693817)
 
 A small public research-code artifact for inverse radial density and potential
 reconstruction from sparse spectral-moment information.
@@ -111,6 +112,7 @@ MIT.
 
 ## Citation
 
-Use `CITATION.cff` for the current software citation metadata. DOI metadata
-will be added only after Zenodo archives a GitHub release and mints the
-software DOI.
+Use `CITATION.cff` for the current software citation metadata.
+
+- Version DOI for `v0.1.1`: https://doi.org/10.5281/zenodo.20693818
+- Concept DOI for all versions: https://doi.org/10.5281/zenodo.20693817
