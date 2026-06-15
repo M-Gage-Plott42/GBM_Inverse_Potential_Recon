@@ -15,14 +15,19 @@ future content expansion.
 | `tests/` | Minimal correctness checks. |
 | `scripts/sanitize_scan.py` | Public-release blocker scan. |
 | `scripts/reproduce_public_demo_figure.py` | Public demo SVG workflow. |
+| `scripts/write_coverage_badge.py` | Public coverage badge generator. |
 | `.github/dependabot.yml` | Dependency and GitHub Actions update monitoring. |
-| `.github/workflows/ci.yml` | Public CI test and sanitation gate. |
+| `.github/workflows/ci.yml` | Public CI test, coverage, and sanitation gate. |
 | `.github/workflows/codeql.yml` | Public CodeQL code-scanning workflow. |
+| `.github/workflows/docs.yml` | Public docs build and GitHub Pages deployment workflow. |
+| `.coveragerc` | Coverage measurement configuration. |
+| `mkdocs.yml` | Documentation site configuration. |
 | `README.md` | Public landing page. |
 | `LICENSE` | MIT license. |
 | `CITATION.cff` | Public v0 citation metadata. |
 | `SECURITY.md` | Vulnerability and private-data reporting policy. |
 | `docs/` | Public-safe scope, reproducibility, and release-gate docs. |
+| `docs/assets/coverage.svg` | Coverage badge generated from public tests. |
 
 ## Sanitize/Rewritten
 
@@ -34,6 +39,8 @@ future content expansion.
 | README material | Rewritten for public users. |
 | GitHub Actions references | Pinned to full commit SHAs with version comments. |
 | CodeQL workflow | Added as a public-repo hardening signal with least-privilege permissions. |
+| Documentation site | Added as a MkDocs site over public-safe Markdown docs. |
+| Coverage badge | Generated from public coverage JSON and verified by CI. |
 | Public benchmark notes | Limited to harmonic-oscillator smoke validation evidence. |
 | Figure workflow | Limited to a generated public demo figure, not private manuscript figures. |
 

@@ -27,13 +27,27 @@ jobs:
       - name: Install package
         run: |
           python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
           python -m pip install -e .
       - name: Unit tests
-        run: python -m unittest discover -s tests
+        run: coverage run -m unittest discover -s tests
+      - name: Coverage report
+        run: |
+          coverage report --fail-under=80
+          coverage xml
+          coverage json -o /tmp/gbm_coverage.json
+      - name: Coverage badge is current
+        run: |
+          python scripts/write_coverage_badge.py /tmp/gbm_coverage.json docs/assets/coverage.svg
+          git diff --exit-code docs/assets/coverage.svg
       - name: CLI JSON smoke
         run: python -m gbm_inverse_potential.cli --json
       - name: Demo smoke
         run: python examples/harmonic_oscillator_demo.py
+      - name: Expanded examples smoke
+        run: |
+          python examples/moment_series_comparison.py --json
+          python examples/alpha_sweep_smoke.py --json --alphas 1.0
       - name: Public figure smoke
         run: >
           python scripts/reproduce_public_demo_figure.py

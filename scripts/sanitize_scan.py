@@ -32,7 +32,19 @@ PRIVATE_PATTERNS = [
 
 BLOCKED_ROOT_DIRS = {"handoff", "runs", "snapshots", "spectrum_data"}
 BLOCKED_PATHS = {PurePosixPath("docs/archive")}
-SKIP_DIR_NAMES = {".git", ".venv", "venv", ".mypy_cache", ".pytest_cache", ".ruff_cache", "__pycache__"}
+SKIP_DIR_NAMES = {
+    ".git",
+    ".venv",
+    "venv",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    "__pycache__",
+    "build",
+    "dist",
+    "site",
+}
+SKIP_FILE_NAMES = {".coverage", "coverage.xml"}
 BLOCKED_SUFFIXES = {".gif", ".gz", ".jpeg", ".jpg", ".mp4", ".pdf", ".png", ".tar", ".tgz", ".zip"}
 MAX_FILE_BYTES = 1_000_000
 MANIFEST_PATH = PurePosixPath("docs/release_file_manifest.txt")
@@ -47,6 +59,7 @@ TEXT_SUFFIXES = {
     ".py",
     ".rst",
     ".sh",
+    ".svg",
     ".toml",
     ".txt",
     ".yaml",
@@ -67,6 +80,8 @@ def iter_files(root: Path):
         dirnames[:] = [d for d in dirnames if not _skip_dir(d)]
         current = Path(dirpath)
         for name in filenames:
+            if name in SKIP_FILE_NAMES:
+                continue
             yield current / name
 
 

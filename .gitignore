@@ -10,7 +10,10 @@ __pycache__/
 venv/
 build/
 dist/
+site/
 *.egg-info/
+.coverage
+coverage.xml
 
 # Local/private source data never allowed in this derivative
 runs/
