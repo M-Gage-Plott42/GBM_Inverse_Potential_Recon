@@ -14,7 +14,12 @@ python -m unittest discover -s tests
 python scripts/sanitize_scan.py .
 python -m gbm_inverse_potential.cli --json
 python examples/harmonic_oscillator_demo.py
+python examples/moment_series_comparison.py --json
+python examples/alpha_sweep_smoke.py --json
 python scripts/reproduce_public_demo_figure.py --output /tmp/gbm_public_demo_density.svg
+coverage run -m unittest discover -s tests
+coverage report
+mkdocs build --strict
 ```
 
 The package import path is provided by the editable install. A source-tree-only
@@ -49,3 +54,7 @@ The default grid is `r_points=400`, `q_points=4000`, and `q_max=16.0` with
 The current observed values are tracked in `docs/public_smoke_benchmark.md`.
 The SVG workflow in `scripts/reproduce_public_demo_figure.py` is a public demo
 figure generator, not a claim that private manuscript figures are reproduced.
+
+The documentation site is built with MkDocs. The GitHub Pages workflow builds
+the same site and deploys it from `main` when Pages is configured to use GitHub
+Actions.

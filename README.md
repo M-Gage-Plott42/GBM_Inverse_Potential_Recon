@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/M-Gage-Plott42/GBM_Inverse_Potential_Recon/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/M-Gage-Plott42/GBM_Inverse_Potential_Recon/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/M-Gage-Plott42/GBM_Inverse_Potential_Recon/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/M-Gage-Plott42/GBM_Inverse_Potential_Recon/actions/workflows/codeql.yml)
+[![Docs](https://github.com/M-Gage-Plott42/GBM_Inverse_Potential_Recon/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/M-Gage-Plott42/GBM_Inverse_Potential_Recon/actions/workflows/docs.yml)
+[![Coverage](docs/assets/coverage.svg)](docs/coverage.md)
 [![Release](https://img.shields.io/github/v/release/M-Gage-Plott42/GBM_Inverse_Potential_Recon)](https://github.com/M-Gage-Plott42/GBM_Inverse_Potential_Recon/releases)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -31,8 +33,11 @@ Current public scope:
 
 - installable Python package with `numpy` as the only runtime dependency;
 - deterministic CLI and example script for the oscillator smoke case;
+- expanded public examples for moment-series and alpha-sweep smoke checks;
 - unit tests for moments, form-factor reconstruction, inverse density recovery,
   potential reconstruction, and sanitizer coverage;
+- coverage measured in CI with a checked-in coverage badge;
+- MkDocs documentation site configuration and GitHub Pages deployment workflow;
 - public reproducibility notes in `docs/reproducibility.md`;
 - smoke benchmark metrics in `docs/public_smoke_benchmark.md`;
 - command-reproducible public demo SVG workflow in
@@ -56,6 +61,8 @@ python -m pip install --upgrade pip
 python -m pip install -e .
 python -m unittest discover -s tests
 python examples/harmonic_oscillator_demo.py
+python examples/moment_series_comparison.py --json
+python examples/alpha_sweep_smoke.py --json
 python -m gbm_inverse_potential.cli --json
 ```
 
@@ -80,6 +87,16 @@ python scripts/reproduce_public_demo_figure.py > /tmp/gbm_public_demo_density.sv
 
 The SVG overlays the analytic reduced density with the reconstructed reduced
 density from the public Fourier/form-factor path.
+
+## Documentation Site
+
+The MkDocs source lives in `docs/` and is configured by `mkdocs.yml`. The
+intended GitHub Pages URL is:
+
+https://m-gage-plott42.github.io/GBM_Inverse_Potential_Recon/
+
+The docs workflow builds the site on pull requests and deploys from `main` when
+GitHub Pages is configured to use GitHub Actions.
 
 ## Repository Status
 

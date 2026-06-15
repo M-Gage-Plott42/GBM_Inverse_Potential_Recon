@@ -1,0 +1,26 @@
+site_name: GBM Inverse Potential Reconstruction
+site_description: Public research-code artifact for inverse radial density and potential reconstruction.
+site_url: https://m-gage-plott42.github.io/GBM_Inverse_Potential_Recon/
+repo_url: https://github.com/M-Gage-Plott42/GBM_Inverse_Potential_Recon
+repo_name: M-Gage-Plott42/GBM_Inverse_Potential_Recon
+edit_uri: edit/main/docs/
+strict: true
+
+theme:
+  name: readthedocs
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - API: api.md
+  - Examples: examples.md
+  - Coverage: coverage.md
+  - Figure Provenance: figure_provenance.md
+  - Reproducibility: reproducibility.md
+  - Smoke Benchmark: public_smoke_benchmark.md
+  - Theory Notes: theory_notes.md
+  - Scope Contract: scope_contract.md
+  - Publish Gate: publish_gate.md
+  - Sanitization Report: sanitization_report.md
+  - Allowlist Manifest: allowlist_manifest.md
+  - v0.2.0 Release Notes: release_notes_v0.2.0.md
