@@ -131,5 +131,6 @@ MIT.
 
 Use `CITATION.cff` for the current software citation metadata.
 
+- Version DOI for `v0.2.0`: https://doi.org/10.5281/zenodo.20709098
 - Version DOI for `v0.1.1`: https://doi.org/10.5281/zenodo.20693818
 - Concept DOI for all versions: https://doi.org/10.5281/zenodo.20693817

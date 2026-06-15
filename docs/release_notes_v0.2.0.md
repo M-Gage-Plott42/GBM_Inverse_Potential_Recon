@@ -1,6 +1,10 @@
 # v0.2.0 Release Notes
 
-Planned release date: 2026-06-15
+GitHub release date: 2026-06-15
+
+Zenodo publication date: 2026-06-16 UTC
+
+Version DOI: https://doi.org/10.5281/zenodo.20709098
 
 ## Added
 
