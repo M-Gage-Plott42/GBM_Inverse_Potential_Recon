@@ -10,6 +10,7 @@ smoke case. It provides:
 - an installable Python package under `src/gbm_inverse_potential`;
 - Fourier/form-factor reconstruction helpers;
 - a console script and runnable examples;
+- a bounded deterministic Python calculation-service contract;
 - unit tests, sanitizer checks, CodeQL, and coverage measurement;
 - a public demo figure workflow;
 - citation metadata and Zenodo archiving.
@@ -18,5 +19,6 @@ The scope is intentionally narrow. The public repository does not publish the
 full research workspace, source history, local runtime data, or unpublished
 paper context.
 
-Start with [Installation](installation.md), then run the examples in
+Start with [Installation](installation.md), review the local
+[Service Contract](service_contract.md), then run the examples in
 [Examples](examples.md).

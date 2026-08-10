@@ -1,6 +1,6 @@
 # Allowlist Manifest
 
-Last updated: 2026-06-14
+Last updated: 2026-08-10
 
 This manifest records the first-pass clean-room classification for the public
 v0 derivative. It is intentionally small and should be reviewed before any
@@ -42,6 +42,7 @@ future content expansion.
 | Documentation site | Added as a MkDocs site over public-safe Markdown docs. |
 | Coverage badge | Generated from public coverage JSON and verified by CI. |
 | Public benchmark notes | Limited to harmonic-oscillator smoke validation evidence. |
+| Calculation service | Bounded typed interface over the existing public smoke path; no new private source material. |
 | Figure workflow | Limited to a generated public demo figure, not private manuscript figures. |
 
 ## Defer

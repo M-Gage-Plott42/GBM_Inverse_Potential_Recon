@@ -1,6 +1,6 @@
 # Sanitization Report
 
-Last updated: 2026-07-16
+Last updated: 2026-08-10
 
 ## Status
 
@@ -8,7 +8,7 @@ Public v0 artifact published at `GBM_Inverse_Potential_Recon`.
 
 - Local commit: `bb2a396 Initial public derivative skeleton`
 - Private-first gate commit: `1ab19cc Harden private-first publish gate`
-- Node 24 workflow update: CI workflow uses `actions/setup-python@v6`.
+- Node 24 workflow update: CI and docs workflows use `actions/setup-python@v7.0.0`.
 - Actions supply-chain hardening: Dependabot config added for GitHub Actions
   and pip, with CodeQL action updates grouped so `init` and `analyze` remain in
   sync; workflow actions are pinned to full commit SHAs with version comments.
@@ -16,7 +16,7 @@ Public v0 artifact published at `GBM_Inverse_Potential_Recon`.
 - Public visibility: approved and published for first public v0 release on
   2026-06-01.
 - Public metadata: GitHub repository description is public-facing; license is
-  MIT; `CITATION.cff` records version `0.1.1` for citable-release prep.
+  MIT; `CITATION.cff` records released version `0.2.0` and its version DOI.
 - Post-public security settings: secret scanning, push protection, and
   Dependabot security updates are enabled with zero open secret-scanning or
   Dependabot alerts as checked on 2026-06-02.
@@ -25,10 +25,13 @@ Public v0 artifact published at `GBM_Inverse_Potential_Recon`.
 - Evidence-layer refresh: README badges and status notes, public smoke
   benchmark notes, reproducibility tolerances, and a command-reproducible
   public demo figure workflow were added without broadening the science scope.
+- Gate 1 application-service addition: a bounded typed interface reuses the
+  existing public oscillator smoke path with fixed work, tests, and explicit
+  no-network/no-cloud limitations. It imports no private source material.
 
 ## Latest Local Checks
 
-Passed locally on 2026-06-14 after editable install:
+Passed locally on 2026-08-10 after editable install:
 
 ```bash
 python3 -m pip install -e .
@@ -37,6 +40,9 @@ python3 -m unittest discover -s tests
 python3 -m gbm_inverse_potential.cli --json
 python3 examples/harmonic_oscillator_demo.py
 python3 scripts/reproduce_public_demo_figure.py --output /tmp/gbm_public_demo_density.svg
+coverage run -m unittest discover -s tests
+coverage report --fail-under=80
+mkdocs build --strict
 ```
 
 Observed demo metrics:
@@ -57,14 +63,10 @@ Observed demo metrics:
 - GitHub CI: public push run `26793729957` passed for Python `3.10`, `3.11`,
   and `3.12`.
 - GitHub Actions runtime: workflows use full-SHA pins for
-  `actions/checkout` v7.0.0 and `actions/setup-python` v6.3.0, both selected
+  `actions/checkout` v7.0.1 and `actions/setup-python` v7.0.0, both selected
   for Node 24 compatibility.
-- GitHub CodeQL: workflow uses full-SHA pins for `actions/checkout` v7.0.0 and
-  `github/codeql-action` v4.37.0.
-- Open dependency PRs reviewed on 2026-06-14:
-  `actions/checkout` v6.0.3 and `github/codeql-action` v4.36.2 both had
-  passing public checks when reviewed. Their exact updates were folded into
-  this evidence-layer refresh.
+- GitHub CodeQL: workflow uses full-SHA pins for `actions/checkout` v7.0.1 and
+  `github/codeql-action` v4.37.3.
 
 ## Human Publish Gate
 

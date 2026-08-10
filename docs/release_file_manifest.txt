@@ -24,6 +24,7 @@ docs/release_file_manifest.txt
 docs/release_notes_v0.2.0.md
 docs/reproducibility.md
 docs/sanitization_report.md
+docs/service_contract.md
 docs/scope_contract.md
 docs/theory_notes.md
 examples/alpha_sweep_smoke.py
@@ -39,8 +40,10 @@ scripts/write_coverage_badge.py
 src/gbm_inverse_potential/__init__.py
 src/gbm_inverse_potential/cli.py
 src/gbm_inverse_potential/fourier.py
+src/gbm_inverse_potential/service.py
 tests/test_cli.py
 tests/test_examples.py
 tests/test_fourier.py
 tests/test_public_demo_figure.py
 tests/test_sanitize_scan.py
+tests/test_service.py
