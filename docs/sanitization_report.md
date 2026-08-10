@@ -26,14 +26,21 @@ Public v0 artifact published at `GBM_Inverse_Potential_Recon`.
   benchmark notes, reproducibility tolerances, and a command-reproducible
   public demo figure workflow were added without broadening the science scope.
 - Gate 1 application-service addition: a bounded typed interface reuses the
-  existing public oscillator smoke path with fixed work, tests, and explicit
-  no-network/no-cloud limitations. It imports no private source material.
+  existing public oscillator smoke path with fixed work and tests. PR #29 was
+  merged to `main` as `cbde2e3f3ed66f88af885b64033cff29fc92fca6`. It imports
+  no private source material.
+- Local HTTP/container addition: an optional one-field FastAPI adapter,
+  generated OpenAPI, operational endpoints, deny-by-default build context,
+  two-stage numeric-non-root image, hardened loopback runtime, and automated
+  stop/start smoke. It adds no private source material and does not publish an
+  image, create a cloud resource, expose a public endpoint, or claim a release.
 
 ## Latest Local Checks
 
-Passed locally on 2026-08-10 after editable install:
+Passed locally on 2026-08-10 after development/service editable install:
 
 ```bash
+python3 -m pip install -r requirements-dev.txt
 python3 -m pip install -e .
 python3 scripts/sanitize_scan.py .
 python3 -m unittest discover -s tests
@@ -43,7 +50,14 @@ python3 scripts/reproduce_public_demo_figure.py --output /tmp/gbm_public_demo_de
 coverage run -m unittest discover -s tests
 coverage report --fail-under=80
 mkdocs build --strict
+python3 scripts/smoke_container.py --build --revision local-review
 ```
+
+The container smoke verified numeric user/group `10001:10001`, read-only root,
+zero effective capabilities, no-new-privileges, 256 MiB/one CPU/64 PID limits,
+no mounts, loopback-only port publication, health, exact API paths, validation,
+clean bounded stop/start, byte-identical calculation output after restart, and
+unique-container cleanup. The image remained local.
 
 Observed demo metrics:
 
@@ -59,9 +73,12 @@ Observed demo metrics:
 - private source repo names and local paths: zero;
 - blocked directories: absent;
 - files larger than 1 MB: absent;
-- tests: pass on the public v0 smoke path.
-- GitHub CI: public push run `26793729957` passed for Python `3.10`, `3.11`,
-  and `3.12`.
+- manifest files: 55;
+- tests: 43 passed on the scientific, HTTP/OpenAPI, concurrency, and sanitizer
+  paths;
+- package branch coverage: 90%, above the enforced 80% floor;
+- Docker lifecycle smoke: pass locally; branch CI must repeat it on the Python
+  3.12 job before any integration decision;
 - GitHub Actions runtime: workflows use full-SHA pins for
   `actions/checkout` v7.0.1 and `actions/setup-python` v7.0.0, both selected
   for Node 24 compatibility.
@@ -70,7 +87,11 @@ Observed demo metrics:
 
 ## Human Publish Gate
 
-The first public v0 release gate is approved for the current manifest only.
-Further private source-repo migration requires a separate allowlist,
-sanitization scan, test/smoke evidence, and human review. Do not broaden this
-repository by copying private source-tree material wholesale.
+The first public v0 release gate approved the then-current historical release
+manifest. The expanded 55-file source manifest is authorized for a reviewed
+branch push only; it is not a new-release approval. Further private source-repo
+migration requires a separate allowlist, sanitization scan, test/smoke
+evidence, and human review. Do not broaden this repository by copying private
+source-tree material wholesale. Main integration, a new release, a registry
+push, cloud deployment, public exposure, and portfolio/resume wording remain
+separate gates.

@@ -27,5 +27,11 @@ Repository = "https://github.com/M-Gage-Plott42/GBM_Inverse_Potential_Recon"
 [project.scripts]
 gbm-inverse-demo = "gbm_inverse_potential.cli:main"
 
+[project.optional-dependencies]
+service = [
+  "fastapi==0.141.1",
+  "uvicorn==0.52.1",
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -52,5 +52,12 @@ jobs:
         run: >
           python scripts/reproduce_public_demo_figure.py
           --output /tmp/gbm_public_demo_density.svg
+      - name: Local container lifecycle smoke
+        if: matrix.python-version == '3.12'
+        run: >
+          python scripts/smoke_container.py
+          --build
+          --image gbm-inverse-potential-recon:ci
+          --revision "${{ github.sha }}"
       - name: Sanitization scan after install
         run: python scripts/sanitize_scan.py .

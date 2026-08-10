@@ -1,3 +1,4 @@
--r requirements.txt
+-r requirements-service.txt
 coverage>=7.15.2
+httpx2==2.10.0
 mkdocs>=1.6.1

@@ -14,6 +14,7 @@ nav:
   - Installation: installation.md
   - API: api.md
   - Service Contract: service_contract.md
+  - Local HTTP And Container Contract: http_container_contract.md
   - Examples: examples.md
   - Coverage: coverage.md
   - Figure Provenance: figure_provenance.md

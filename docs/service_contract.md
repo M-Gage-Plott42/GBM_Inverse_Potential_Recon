@@ -5,9 +5,11 @@ Last updated: 2026-08-10
 ## Scope
 
 The package exposes a bounded, framework-neutral Python application service for
-the existing harmonic-oscillator inverse-potential reconstruction. This is a
-local Python API. It does not start a network listener and is not a REST,
-FastAPI, container, cloud, or deployed-service implementation.
+the existing harmonic-oscillator inverse-potential reconstruction. The core in
+`service.py` does not start a network listener. The optional FastAPI adapter in
+`http_api.py` maps one local HTTP request to this core, and the Dockerfile
+packages that adapter for local evidence. Neither layer is a cloud deployment,
+public endpoint, published image, or monitored-service claim.
 
 ## Request
 
@@ -19,6 +21,11 @@ FastAPI, container, cloud, or deployed-service implementation.
 Booleans, strings, NaN, infinities, and values outside the interval fail with
 `CalculationInputError`. The request exposes no file, upload, raw-array,
 grid-size, or arbitrary calculation input.
+
+The HTTP adapter preserves the same one-field boundary, rejects query controls,
+and limits the request body to 1 KiB before validation. Its exact routes and
+failure behavior are defined in
+[Local HTTP And Container Contract](http_container_contract.md).
 
 ## Fixed Work Profile
 
@@ -37,8 +44,8 @@ grid-size, or arbitrary calculation input.
 The existing CLI retains its grid flags and broader alpha behavior for local
 exploratory compatibility. Those legacy controls are not fields in
 `CalculationRequest`, do not receive the service quality guarantee, and are not
-candidates for a future HTTP request model. The bounded service path always
-uses the fixed profile above.
+fields in the HTTP request model. The bounded service path always uses the
+fixed profile above.
 
 ## Result
 

@@ -86,7 +86,12 @@ def iter_files(root: Path):
 
 
 def is_text_candidate(path: Path) -> bool:
-    return path.suffix.lower() in TEXT_SUFFIXES or path.name in {"LICENSE", "Makefile"}
+    return path.suffix.lower() in TEXT_SUFFIXES or path.name in {
+        ".dockerignore",
+        "Dockerfile",
+        "LICENSE",
+        "Makefile",
+    }
 
 
 def _load_expected_manifest(root: Path) -> set[PurePosixPath]:
