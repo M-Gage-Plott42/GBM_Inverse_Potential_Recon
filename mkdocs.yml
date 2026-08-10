@@ -13,6 +13,7 @@ nav:
   - Home: index.md
   - Installation: installation.md
   - API: api.md
+  - Service Contract: service_contract.md
   - Examples: examples.md
   - Coverage: coverage.md
   - Figure Provenance: figure_provenance.md

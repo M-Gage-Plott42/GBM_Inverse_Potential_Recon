@@ -2,6 +2,23 @@
 
 The public API lives in `gbm_inverse_potential`.
 
+## Bounded Calculation Service
+
+- `CalculationRequest(alpha=1.0)`: validates a finite `alpha` in the inclusive
+  interval `0.75` through `1.25`.
+- `run_calculation(request)`: evaluates the fixed `public-standard-v1` work
+  profile and returns `CalculationResult`.
+- `CalculationResult.to_dict()`: returns the versioned JSON-compatible service
+  representation.
+- `CalculationResult.legacy_metrics()`: projects the standard result into the
+  established flat CLI metric shape.
+- `CalculationInputError`: identifies unsupported request input.
+- `CalculationInvariantError`: identifies a missing, non-finite, mismatched, or
+  out-of-tolerance internal result.
+
+See [Service Contract](service_contract.md) for the exact profile, schema,
+quality gate, and non-goals.
+
 ## Harmonic-Oscillator Reference Helpers
 
 - `ho_even_moment(power, *, alpha=1.0)`: returns the analytic even radial

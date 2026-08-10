@@ -7,6 +7,12 @@ import json
 from typing import Sequence
 
 from .fourier import harmonic_oscillator_demo
+from .service import (
+    PUBLIC_STANDARD_PROFILE,
+    CalculationInputError,
+    CalculationRequest,
+    run_calculation,
+)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -20,13 +26,25 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: Sequence[str] | None = None) -> int:
-    args = build_parser().parse_args(argv)
-    result = harmonic_oscillator_demo(
-        alpha=args.alpha,
-        r_points=args.r_points,
-        q_points=args.q_points,
-        q_max=args.q_max,
-    )
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    try:
+        request = CalculationRequest(alpha=args.alpha)
+    except CalculationInputError:
+        request = None
+
+    profile = PUBLIC_STANDARD_PROFILE
+    requested_grid = (args.r_points, args.q_points, args.q_max)
+    standard_grid = (profile.r_points, profile.q_points, profile.q_max)
+    if request is not None and requested_grid == standard_grid:
+        result = run_calculation(request).legacy_metrics()
+    else:
+        result = harmonic_oscillator_demo(
+            alpha=args.alpha,
+            r_points=args.r_points,
+            q_points=args.q_points,
+            q_max=args.q_max,
+        )
     if args.json:
         print(json.dumps(result, indent=2, sort_keys=True))
     else:

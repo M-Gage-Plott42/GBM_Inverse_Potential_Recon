@@ -25,6 +25,7 @@ before any larger research components are considered for release.
 - A Fourier/form-factor density reconstruction path using even radial moments.
 - A finite-difference potential reconstruction smoke path.
 - A deterministic harmonic-oscillator demo and unit tests.
+- A bounded, deterministic Python application service over the same smoke path.
 - Public-release guard docs, sanitization checks, citation metadata, and CI.
 
 ## Evidence Status
@@ -33,6 +34,8 @@ Current public scope:
 
 - installable Python package with `numpy` as the only runtime dependency;
 - deterministic CLI and example script for the oscillator smoke case;
+- typed request/result objects, fixed computational work, and a versioned
+  JSON-compatible local service contract;
 - expanded public examples for moment-series and alpha-sweep smoke checks;
 - unit tests for moments, form-factor reconstruction, inverse density recovery,
   potential reconstruction, and sanitizer coverage;
@@ -65,6 +68,21 @@ python examples/moment_series_comparison.py --json
 python examples/alpha_sweep_smoke.py --json
 python -m gbm_inverse_potential.cli --json
 ```
+
+## Local Calculation Service
+
+```python
+from gbm_inverse_potential import CalculationRequest, run_calculation
+
+result = run_calculation(CalculationRequest(alpha=1.0))
+print(result.to_dict()["metrics"])
+```
+
+The service accepts `alpha` from `0.75` through `1.25` inclusive and always
+uses the documented `400 x 4000` standard grid. See
+`docs/service_contract.md` for the versioned result schema, accuracy gate, and
+limitations. This is a framework-neutral local Python API, not a network,
+REST, FastAPI, Docker, cloud, or deployed-service claim.
 
 Expected demo behavior: the reconstructed reduced density and reconstructed
 potential should have small relative errors on the documented smoke grid.
@@ -113,6 +131,7 @@ review gates before they are folded into this public repository.
 ## Reproducibility And Benchmark Notes
 
 - Reproducibility notes: `docs/reproducibility.md`.
+- Deterministic local service contract: `docs/service_contract.md`.
 - Public smoke benchmark: `docs/public_smoke_benchmark.md`.
 - Release and safety gate: `docs/publish_gate.md`.
 - File manifest enforced by the sanitizer: `docs/release_file_manifest.txt`.

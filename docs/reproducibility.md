@@ -1,6 +1,6 @@
 # Reproducibility Notes
 
-Last updated: 2026-06-14
+Last updated: 2026-08-10
 
 ## Environment
 
@@ -52,6 +52,16 @@ The default grid is `r_points=400`, `q_points=4000`, and `q_max=16.0` with
 - potential max absolute error on the tested window below `1.0e-3`.
 
 The current observed values are tracked in `docs/public_smoke_benchmark.md`.
+The bounded Python service uses the same fixed grid for `alpha` values from
+`0.75` through `1.25`. Its interval-wide density-normalization ceiling is
+`5.0e-5`; the default `alpha=1.0` benchmark above retains the tighter
+`2.0e-5` threshold. All other error ceilings are unchanged. See
+`docs/service_contract.md`.
+
+Repeat-call equality is checked in the local dependency environment. Portable
+scientific correctness uses the documented tolerances because floating-point
+last bits can differ across supported Python/platform combinations.
+
 The SVG workflow in `scripts/reproduce_public_demo_figure.py` is a public demo
 figure generator, not a claim that private manuscript figures are reproduced.
 

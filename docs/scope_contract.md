@@ -1,6 +1,6 @@
 # Scope Contract
 
-Last updated: 2026-06-14
+Last updated: 2026-08-10
 
 ## Derivative Name
 
@@ -28,6 +28,7 @@ Public v0 is deliberately narrow:
 - reduced radial density reconstruction;
 - potential reconstruction by finite differences in reduced units;
 - unit tests and a command-line smoke demo;
+- a bounded framework-neutral Python application service over that same demo;
 - public smoke benchmark notes for the oscillator demo;
 - command-reproducible public demo SVG generation.
 
@@ -51,3 +52,5 @@ Public v0 is deliberately narrow:
 - no claim that private manuscript figures are reproduced;
 - no additional private-source migration without a separate allowlist,
   sanitization pass, test or smoke evidence, and human review.
+- no network listener, REST or FastAPI adapter, container, cloud resource,
+  deployment, monitoring, persistence, upload handling, or public endpoint.
