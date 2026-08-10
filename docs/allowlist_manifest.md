@@ -16,6 +16,12 @@ future content expansion.
 | `scripts/sanitize_scan.py` | Public-release blocker scan. |
 | `scripts/reproduce_public_demo_figure.py` | Public demo SVG workflow. |
 | `scripts/write_coverage_badge.py` | Public coverage badge generator. |
+| `scripts/smoke_container.py` | Local-only hardened container lifecycle and API smoke. |
+| `src/gbm_inverse_potential/http_api.py` | Bounded optional FastAPI adapter over the reviewed Python service. |
+| `tests/test_http_api.py` | HTTP/OpenAPI, failure, and concurrency contract tests. |
+| `requirements-service.txt` | Direct optional FastAPI/Uvicorn dependency intent. |
+| `Dockerfile` | Two-stage non-root local evidence image. |
+| `.dockerignore` | Deny-by-default build-context boundary. |
 | `.github/dependabot.yml` | Dependency and GitHub Actions update monitoring. |
 | `.github/workflows/ci.yml` | Public CI test, coverage, and sanitation gate. |
 | `.github/workflows/codeql.yml` | Public CodeQL code-scanning workflow. |
@@ -34,7 +40,9 @@ future content expansion.
 | Source concept | Public treatment |
 | --- | --- |
 | Fourier/form-factor route | Rewritten as a compact public implementation. |
-| Runtime dependencies | Reduced to `numpy>=1.26`. |
+| Base runtime dependencies | Reduced to `numpy>=1.26`. |
+| Optional service dependencies | Exact direct FastAPI/Uvicorn intent, isolated from the base import path. |
+| HTTP test dependency | Exact direct HTTPX2 intent in the development requirements only. |
 | Citation metadata | Retitled for the derivative repo. |
 | README material | Rewritten for public users. |
 | GitHub Actions references | Pinned to full commit SHAs with version comments. |
@@ -43,6 +51,7 @@ future content expansion.
 | Coverage badge | Generated from public coverage JSON and verified by CI. |
 | Public benchmark notes | Limited to harmonic-oscillator smoke validation evidence. |
 | Calculation service | Bounded typed interface over the existing public smoke path; no new private source material. |
+| HTTP/container layer | Local bounded adapter and hardened lifecycle evidence; no private source, cloud resource, registry push, or deployment. |
 | Figure workflow | Limited to a generated public demo figure, not private manuscript figures. |
 
 ## Defer
@@ -53,6 +62,7 @@ future content expansion.
 | Large engine and plotter modules | Not needed for v0; require separate audit. |
 | Reference profile libraries | Need separate size/license/provenance review. |
 | Advanced Padé and ILT comparison surfaces | Defer until public v0 is stable. |
+| Fully locked container/infrastructure | Requires a separate digest, lock, deployment, monitoring, cost, and teardown gate. |
 
 ## Block
 

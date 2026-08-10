@@ -11,6 +11,8 @@ smoke case. It provides:
 - Fourier/form-factor reconstruction helpers;
 - a console script and runnable examples;
 - a bounded deterministic Python calculation-service contract;
+- a bounded local FastAPI/OpenAPI adapter;
+- a non-root local Docker image with hardened lifecycle checks;
 - unit tests, sanitizer checks, CodeQL, and coverage measurement;
 - a public demo figure workflow;
 - citation metadata and Zenodo archiving.
@@ -19,6 +21,11 @@ The scope is intentionally narrow. The public repository does not publish the
 full research workspace, source history, local runtime data, or unpublished
 paper context.
 
-Start with [Installation](installation.md), review the local
-[Service Contract](service_contract.md), then run the examples in
-[Examples](examples.md).
+Start with [Installation](installation.md), review the Python
+[Service Contract](service_contract.md) and the
+[Local HTTP And Container Contract](http_container_contract.md), then run the
+examples in [Examples](examples.md).
+
+The HTTP adapter and image are local evidence only. This repository does not
+claim a cloud deployment, public endpoint, published image, monitored
+operation, or new release for that slice.

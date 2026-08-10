@@ -1,4 +1,4 @@
-# Public API
+# Public Python And Local HTTP APIs
 
 The public API lives in `gbm_inverse_potential`.
 
@@ -18,6 +18,23 @@ The public API lives in `gbm_inverse_potential`.
 
 See [Service Contract](service_contract.md) for the exact profile, schema,
 quality gate, and non-goals.
+
+## Local HTTP Adapter
+
+Install the optional `service` extra before importing
+`gbm_inverse_potential.http_api`. The adapter exposes:
+
+- `POST /v1/reconstruct` with exactly one required `alpha` number;
+- `GET /health/live` and `GET /health/ready`;
+- `GET /version` with unreleased source status; and
+- generated OpenAPI at `/openapi.json` plus local Swagger UI at `/docs`.
+
+The adapter reuses `CalculationResult.to_dict()` as its typed success schema.
+It rejects extra/query work controls, uploads, non-JSON/encoded or oversized
+bodies, and simultaneous calculations. Invalid, busy, invariant, and
+unexpected failures return generic `4xx`/`5xx` responses. See
+[Local HTTP And Container Contract](http_container_contract.md) for exact
+limits and status behavior.
 
 ## Harmonic-Oscillator Reference Helpers
 

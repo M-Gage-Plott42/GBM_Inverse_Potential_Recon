@@ -1,5 +1,6 @@
 # Expected files for public v0. sanitize_scan.py fails on unexpected files.
 .coveragerc
+.dockerignore
 .github/dependabot.yml
 .github/workflows/codeql.yml
 .github/workflows/ci.yml
@@ -7,6 +8,7 @@
 .gitignore
 CITATION.cff
 CONTRIBUTING.md
+Dockerfile
 LICENSE
 README.md
 SECURITY.md
@@ -16,6 +18,7 @@ docs/allowlist_manifest.md
 docs/coverage.md
 docs/examples.md
 docs/figure_provenance.md
+docs/http_container_contract.md
 docs/index.md
 docs/installation.md
 docs/public_smoke_benchmark.md
@@ -33,17 +36,21 @@ examples/moment_series_comparison.py
 mkdocs.yml
 pyproject.toml
 requirements-dev.txt
+requirements-service.txt
 requirements.txt
 scripts/reproduce_public_demo_figure.py
 scripts/sanitize_scan.py
+scripts/smoke_container.py
 scripts/write_coverage_badge.py
 src/gbm_inverse_potential/__init__.py
 src/gbm_inverse_potential/cli.py
 src/gbm_inverse_potential/fourier.py
+src/gbm_inverse_potential/http_api.py
 src/gbm_inverse_potential/service.py
 tests/test_cli.py
 tests/test_examples.py
 tests/test_fourier.py
+tests/test_http_api.py
 tests/test_public_demo_figure.py
 tests/test_sanitize_scan.py
 tests/test_service.py

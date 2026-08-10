@@ -26,16 +26,19 @@ before any larger research components are considered for release.
 - A finite-difference potential reconstruction smoke path.
 - A deterministic harmonic-oscillator demo and unit tests.
 - A bounded, deterministic Python application service over the same smoke path.
+- A local FastAPI adapter with generated OpenAPI and operational endpoints.
+- A non-root Docker image and automated loopback-only lifecycle smoke test.
 - Public-release guard docs, sanitization checks, citation metadata, and CI.
 
 ## Evidence Status
 
 Current public scope:
 
-- installable Python package with `numpy` as the only runtime dependency;
+- installable base Python package with `numpy` as its only runtime dependency;
 - deterministic CLI and example script for the oscillator smoke case;
 - typed request/result objects, fixed computational work, and a versioned
   JSON-compatible local service contract;
+- an optional FastAPI/Uvicorn HTTP layer and a local evidence container;
 - expanded public examples for moment-series and alpha-sweep smoke checks;
 - unit tests for moments, form-factor reconstruction, inverse density recovery,
   potential reconstruction, and sanitizer coverage;
@@ -53,7 +56,9 @@ This first pass intentionally excludes private source-repo history, private
 handoff packets, raw run outputs, workstation or cluster configuration, large
 media files, manuscript sync notes, archived operational docs, private local
 paths, and claims about unpublished/private research beyond the public v0
-artifact.
+artifact. The local HTTP/container evidence does not establish a cloud
+deployment, public endpoint, published image, monitored operation, or new
+software release.
 
 ## Quick Start
 
@@ -61,6 +66,7 @@ artifact.
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
+python -m pip install -r requirements-dev.txt
 python -m pip install -e .
 python -m unittest discover -s tests
 python examples/harmonic_oscillator_demo.py
@@ -81,8 +87,37 @@ print(result.to_dict()["metrics"])
 The service accepts `alpha` from `0.75` through `1.25` inclusive and always
 uses the documented `400 x 4000` standard grid. See
 `docs/service_contract.md` for the versioned result schema, accuracy gate, and
-limitations. This is a framework-neutral local Python API, not a network,
-REST, FastAPI, Docker, cloud, or deployed-service claim.
+limitations. The Python core remains framework-neutral; the optional HTTP
+adapter delegates to it without exposing grid controls, files, uploads, or
+stored input.
+
+## Local HTTP API
+
+```bash
+python -m pip install -e '.[service]'
+uvicorn gbm_inverse_potential.http_api:app \
+  --host 127.0.0.1 --port 8000 --workers 1 \
+  --no-access-log --no-proxy-headers --no-server-header --no-date-header
+```
+
+The reviewed wire surface is `POST /v1/reconstruct`, `GET /health/live`,
+`GET /health/ready`, `GET /version`, `GET /openapi.json`, and the local
+Swagger UI at `GET /docs`. Keep it on loopback. See
+`docs/http_container_contract.md` for request limits and failure behavior.
+
+## Local Docker Evidence
+
+With Docker running:
+
+```bash
+python scripts/smoke_container.py --build --revision local-review
+```
+
+The smoke workflow builds locally, starts the image with a read-only root
+filesystem, numeric non-root user, dropped capabilities, no-new-privileges,
+CPU/memory/PID limits, and a loopback-only host port. It checks the API,
+container configuration, clean stop/start behavior, deterministic restart
+output, and cleanup. It does not push the image or contact a cloud provider.
 
 Expected demo behavior: the reconstructed reduced density and reconstructed
 potential should have small relative errors on the documented smoke grid.
@@ -132,6 +167,7 @@ review gates before they are folded into this public repository.
 
 - Reproducibility notes: `docs/reproducibility.md`.
 - Deterministic local service contract: `docs/service_contract.md`.
+- Local HTTP and container contract: `docs/http_container_contract.md`.
 - Public smoke benchmark: `docs/public_smoke_benchmark.md`.
 - Release and safety gate: `docs/publish_gate.md`.
 - File manifest enforced by the sanitizer: `docs/release_file_manifest.txt`.

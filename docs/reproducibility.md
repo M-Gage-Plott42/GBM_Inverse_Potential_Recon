@@ -2,13 +2,18 @@
 
 Last updated: 2026-08-10
 
-## Environment
+## Base Environment
 
 Python `>=3.10` with `numpy>=1.26`.
+
+The optional local HTTP layer pins direct intent to FastAPI `0.141.1` and
+Uvicorn `0.52.1`. Development HTTP tests pin HTTPX2 `2.10.0`. Transitive
+dependencies remain resolver-selected in this gate.
 
 ## Smoke Commands
 
 ```bash
+python -m pip install -r requirements-dev.txt
 python -m pip install -e .
 python -m unittest discover -s tests
 python scripts/sanitize_scan.py .
@@ -20,6 +25,7 @@ python scripts/reproduce_public_demo_figure.py --output /tmp/gbm_public_demo_den
 coverage run -m unittest discover -s tests
 coverage report
 mkdocs build --strict
+python scripts/smoke_container.py --build --revision local-review
 ```
 
 The package import path is provided by the editable install. A source-tree-only
@@ -68,3 +74,19 @@ figure generator, not a claim that private manuscript figures are reproduced.
 The documentation site is built with MkDocs. The GitHub Pages workflow builds
 the same site and deploys it from `main` when Pages is configured to use GitHub
 Actions.
+
+## HTTP And Container Evidence
+
+The FastAPI integration tests verify exact Python-service response parity,
+fixed OpenAPI paths, request bounds, generic failure responses, hardening
+headers, single-calculation concurrency, and deterministic repeated response
+bytes. The container smoke verifies the image configuration, hardened runtime,
+loopback-only host binding, health, API contract, bounded shutdown, restart,
+and byte-identical post-restart response.
+
+The Dockerfile uses `python:3.12.13-slim` and builds with `--pull`. The patch tag
+is mutable, its digest is not pinned in the Dockerfile, and indirect Python
+dependencies are not hash-locked. Therefore this slice records deterministic
+scientific behavior and a locally identified image build, not a universal
+byte-for-byte reproducible-build claim. Digest/lock policy belongs to the later
+reproducible-infrastructure gate.

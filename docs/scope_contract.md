@@ -29,6 +29,8 @@ Public v0 is deliberately narrow:
 - potential reconstruction by finite differences in reduced units;
 - unit tests and a command-line smoke demo;
 - a bounded framework-neutral Python application service over that same demo;
+- a bounded local FastAPI adapter with generated OpenAPI documentation;
+- a non-root local Docker evidence image and lifecycle smoke test;
 - public smoke benchmark notes for the oscillator demo;
 - command-reproducible public demo SVG generation.
 
@@ -52,5 +54,9 @@ Public v0 is deliberately narrow:
 - no claim that private manuscript figures are reproduced;
 - no additional private-source migration without a separate allowlist,
   sanitization pass, test or smoke evidence, and human review.
-- no network listener, REST or FastAPI adapter, container, cloud resource,
-  deployment, monitoring, persistence, upload handling, or public endpoint.
+- no cloud resource, deployment, registry/image publication, monitored
+  operation, persistence, upload handling, authentication claim, TLS claim, or
+  public endpoint;
+- no internet exposure of the local HTTP adapter or Swagger UI under this gate;
+- no reproducible-build claim until transitive dependencies and the base image
+  are locked by the later evidence gate.
